@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="pwc_report_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <!-- <t t-call="report.external_layout"> -->
+                        <div class="page">
+                            <h2 class="text-center">PHYSICAL CONSUMER SURVEYFORM</h2>
+                            <div class="row">
+                                <div class="col-6">
+                                    <p>S.No:
+                                        <u>
+                                            <span t-field="o.sr_no"/>
+                                        </u>
+                                    </p>
+                                    <p>Date of survey:
+                                        <u>
+                                            <span t-field="o.date_survey"/>
+                                        </u>
+                                    </p>
+                                    <p>Name of IBC:
+                                        <u>
+                                            <span t-field="o.name_ibc"/>
+                                        </u>
+
+                                    </p>
+                                    <p>Consumer Name:
+                                        <u>
+                                            <span t-field="o.consumer_name"/>
+                                        </u>
+
+                                    </p>
+                                    <p>Consumer Ke Mis:
+                                        <u>
+                                            <span t-field="o.consumer_ke_mis_id"/>
+                                        </u>
+
+                                    </p>
+                                    <p>Consumer number as per KE MIS:
+                                        <u>
+                                            <span t-field="o.consumer_no"/>
+                                        </u>
+
+                                    </p>
+                                    <p>Contract account as per KE MIS:
+                                        <u>
+                                            <span t-field="o.consumer_account_no"/>
+                                        </u>
+
+                                    </p>
+                                </div>
+                                <div class="col-6">
+                                    <p>Surveyor Representative Name:
+                                        <u>
+                                            <span t-field="o.surveyor_name"/>
+                                        </u>
+
+                                    </p>
+                                    <p>IBC Field Surveyor Name:
+                                        <u>
+                                            <span t-field="o.ibc_surveyor_name"/>
+                                        </u>
+
+                                    </p>
+
+                                </div>
+                            </div>
+                            <div>
+                                 <h2 class="text-left">A EVIDENCE OF ELECTRICITY BEING CONSUMED</h2>
+                                <p>1 Meter present
+                                        <u>
+                                            <span t-field="o.ibc_surveyor_name"/>
+                                        </u>
+
+                                    </p>
+
+
+                            </div>
+
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+
+        <!-- QWeb Reports -->
+        <!-- NAME & FILE_NAME should be the same -->
+        <report
+                id="pwc_report_action"
+                model="consumers.survey"
+                report_type="qweb-pdf"
+                string="PWC"
+                name="pwc.pwc_report_template"
+                file="pwc.pwc_report_template"
+        />
+
+
+    </data>
+</odoo>

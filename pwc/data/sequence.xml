@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate=".">
+        <record id="seq_pwc_nxt" model="ir.sequence">
+            <field name="name">PWC Sequence</field>
+            <field name="code">consumers.survey</field>
+            <field name="prefix">PWC-21-/</field>
+            <field eval="1" name="number_next"/>
+            <field eval="True" name="use_date_range"/>
+            <field name="padding">4</field>
+        </record>
+    </data>
+</odoo>

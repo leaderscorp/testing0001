@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="consumers_view_form" model="ir.ui.view">
+            <field name="name">consumers.view.form</field>
+            <field name="model">consumers</field>
+            <field name="arch" type="xml">
+                <form string="consumers_form">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="s_no"/>
+                                <field name="ibc_name"/>
+                                <field name="name"/>
+                                <field name="consumer_no"/>
+                                <field name="meter_number"/>
+                                <field name="contract_account_no"/>
+                                <field name="consumer_account_no"/>
+                            </group>
+                            <group>
+                                <field name="surveyor_name"/>
+                                <field name="ibc_surveyor_name"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="consumers_view_tree" model="ir.ui.view">
+            <field name="name">consumers_view_tree</field>
+            <field name="model">consumers</field>
+            <field name="arch" type="xml">
+                <tree string="consumers_tree">
+				    <field name="record_name" string="Name"/>
+                    <field name="s_no"/>
+                    <field name="name"/>
+                    <field name="consumer_no"/>
+                    <!--<field name="consumer_account_no"/>-->
+                    <field name="contract_account_no"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="consumers_action" model="ir.actions.act_window">
+            <field name="name">Consumers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">consumers</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+        <menuitem id="pwc_root" name="PWC"/>
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="pwc_config" name="Config" parent="pwc.pwc_root" sequence="20"/>
+        <menuitem id="consumers" name="Consumer" parent="pwc.pwc_config" sequence="10" action="pwc.consumers_action"/>
+    </data>
+</odoo>

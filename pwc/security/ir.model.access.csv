@@ -1,0 +1,4 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_consumers,consumers,model_consumers,,1,1,1,1
+access_consumers_survey,consumers.survey,model_consumers_survey,,1,1,1,1
+access_surveys_images,surveys.images,model_surveys_images,,1,1,1,1

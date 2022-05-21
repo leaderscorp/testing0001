@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="consumers_survey_view_form" model="ir.ui.view">
+            <field name="name">_view_form</field>
+            <field name="model">consumers.survey</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="date_survey"/>
+                                <field name="sr_no" />
+                                <field name="name_ibc"/>
+                                <field name="consumer_name"/>
+                                <field name="consumer_ke_mis_id"/>
+                                <field name="consumer_no"/>
+                                <!--<field name="consumer_account_no"/>-->
+                                <field name="contract_account_no"/>
+                            </group>
+                            <group>
+                                <field name="surveyor_name"/>
+                                <field name="ibc_surveyor_name"/>
+                            </group>
+                        </group>
+                            <group string="A EVIDENCE OF ELECTRICITY BEING CONSUMED">
+                                 <field name="a_merter_check" widget="radio"/>
+                                 <field name="a_merter_description"
+                                          attrs="{'invisible':[('a_merter_check','!=','yes')]}"
+                                 />
+                                <field name="a_merter_image_1920"
+                                        widget='image'
+                                          attrs="{'invisible':[('a_merter_check','!=','yes')]}"
+                                 />
+                                <field name="a_elect_met" widget="radio"/>
+                                <field name="a_elect_met_description"
+                                          attrs="{'invisible':[('a_elect_met','!=','yes')]}"/>
+                                <field name="a_elect_met_image_1920"
+                                        widget='image'
+                                          attrs="{'invisible':[('a_elect_met','!=','yes')]}"/>
+
+                                  <field name="a_hook_connection" widget="radio"  readonly="1"/>
+
+                                 <field name="a_meter_phy" widget="radio"
+                                          attrs="{'invisible':[('a_merter_check','!=','yes')]}"/>
+                                <field name="a_meter_phy_image_1920"
+                                        widget='image'
+                                          attrs="{'invisible':[('a_merter_check','!=','yes')]}"/>
+
+                                 <field name="a_site_survay" widget="radio"
+                                        />
+                                 <field name="a_site_survay_description"
+                                          attrs="{'invisible':[('a_site_survay','!=','yes')]}"/>
+                                <field name="a_site_survay_image_1920"
+                                        widget='image'
+                                          attrs="{'invisible':[('a_site_survay','!=','yes')]}"/>
+
+
+                                 <field name="a_meter_no_found" widget="radio" groups="pwc.group_pwc_head"/>
+                                 <field name="a_site_survay_description" groups="pwc.group_pwc_head"/>
+                                <field name="a_site_survay_image_1920"
+                                        widget='image'
+                                groups="pwc.group_pwc_head"/>
+
+                                  <field name="a_consumer_no_found" widget="radio"
+                                  groups="pwc.group_pwc_head"/>
+
+
+                            </group>
+                            <group string="B AREA OVERVIEW"  >
+                                <field name="b_arial_bundle_cables"  widget="radio"/>
+
+                            </group>
+
+                             <group string="C IMAGES CAPTURED" groups="pwc.group_pwc_head">
+                                <field name="c_hook_connection" widget="radio"/>
+                                <field name="c_meter" widget="radio"/>
+                                <field name="c_elevation" widget="radio"/>
+                                <field name="c_evidence" widget="radio"/>
+                                <field name="c_evidence_arieal" readonly="1" widget="radio"/>
+
+                            </group>
+                            <group string="D Inquiry From Consumer" groups="pwc.group_pwc_head">
+                                 <field name="name_of_person" />
+                                 <field name="d_person_ceck" widget="radio"/>
+                                <field name="d_name"  attrs="{'required':[('d_person_ceck','=','yes')]}"/>
+                                  <field name="d_customer_willling" widget="radio" readonly="1"/>
+                                  <field name="d_not_willling_talk" widget="radio" readonly="1"/>
+                            </group>
+                         <notebook>
+                            <page name="images" string="Images">
+                                <field name="images_ids" nolabel="1" >
+                                    <tree editable="bottom">
+                                        <field name="image_1920"   widget='image'/>
+                                    </tree>
+                                </field>
+                            </page>
+                         </notebook>
+
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="consumers_survey_view_tree" model="ir.ui.view">
+            <field name="name">_view_tree</field>
+            <field name="model">consumers.survey</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="sr_no"/>
+                    <field name="name"/>
+                    <field name="date_survey"/>
+                    <field name="name_ibc"/>
+                    <field name="consumer_ke_mis_id"/>
+                    <field name="consumer_no"/>
+                    <!--<field name="consumer_account_no"/>-->
+                    <field name="contract_account_no"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="consumers_survey_action" model="ir.actions.act_window">
+            <field name="name">Consumers Survey</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">consumers.survey</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="consumers_survey_menu" name="Consumers Survey" parent="pwc.pwc_root"
+                  action="pwc.consumers_survey_action" sequence="10"/>
+
+
+    </data>
+</odoo>
